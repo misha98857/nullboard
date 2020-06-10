@@ -353,6 +353,10 @@
 		            -1px 0 0 #00000010 inset;
 	}
 
+	.board .note.done {
+		background: lightgreen;
+	}
+
 	.board .note.dragging * {
 		opacity: 0 !important;
 	}
@@ -1184,6 +1188,7 @@
 					<a href=# class='del-note warn'><u></u></a>
 					<a href=# class='raw-note'>R</a>
 					<a href=# class='collapse'>_</a>
+					<a href=# class='done'>✓</a>
 				</div>
 			</div>
 			<div class=text>
@@ -2571,6 +2576,11 @@
 	$('.board .raw-note').live('click', function(){
 		$(this).closest('.note').toggleClass('raw');
 		saveBoard();
+		return false;
+	});
+
+	$('.board .done').live('click', function(){
+		$(this).closest('.note').toggleClass('done')
 		return false;
 	});
 
